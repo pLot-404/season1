@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../movie.css">
     <title>処刑場</title>
+    <script>
+        //Service Worker入れてPWA化
+        if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('../../sw.js').then(function(){
+                console.log("Service Worker is registered!!");
+            });
+        }
+    </script>
 </head>
 
 <body>
