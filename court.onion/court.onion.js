@@ -52,7 +52,7 @@ const sec = 1000;
 const min = 60000;
 
 //Service Worker初期化
-navigator.serviceWorker.register('/sw.js');
+navigator.serviceWorker.register('../sw.js');
 
 //前の動画を見てから1分、5分、15分、20分で56す動画有効化&サムネ変更&通知を送信
 $(function() {
