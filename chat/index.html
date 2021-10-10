@@ -6,6 +6,14 @@
     <title>チャット</title>
     <link rel="stylesheet" type="text/css" href="chat.css">
     <link rel="stylesheet" type="text/css" href="../index.css">
+    <script>
+        //Service Worker入れてPWA化
+        if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('/serviceworker.js').then(function(){
+                console.log("Service Worker is registered!!");
+            });
+        }
+    </script>
 </head>
 
 <body>
