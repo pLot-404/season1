@@ -11,6 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Allison&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&display=swap" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="hidden.css">
+    <script>
+        //Service Worker入れてPWA化
+        if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('/serviceworker.js').then(function(){
+                console.log("Service Worker is registered!!");
+            });
+        }
+    </script>
   </head>
   <body>
     <a href="../" >
