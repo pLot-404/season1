@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>辞典的なやつ</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--JQuery-->
+</head>
+
+<body>
+    <div id="target" style="color:#ff0000; background-color:#0000ff;">ここの文字色と背景色を反転させます。</div>
+    <script>
+        $(function() {
+            $("#my_button1").on("click", function(evt) {
+                //文字色を反転させる。
+                old_color = $("#target").css('color');
+                new_color = invertRgb(old_color);
+                $("#target").css('color', new_color);
+                //背景色を反転させる。
+                old_color = $("#target").css('background-color');
+                new_color = invertRgb(old_color);
+                $("#target").css('background-color', new_color);
+            });
+        });
+
+        function invertRgb(str_old_rgb) {
+            var ary_rgb = str_old_rgb.match(/([0-9]+)/g);
+            for (var i = 0; i < ary_rgb.length; i++) {
+                ary_rgb[i] = 255 - ary_rgb[i];
+            }
+            return 'RGB(' + ary_rgb.join(',') + ')';
+        }
+    </script>
+    <!--ニコニコより弾幕含むソース
+        弾幕部はCommentRendelerに含まれると予想されるが解析するまでは不明-->
+    <div class="InView VideoContainer">
+        <div id="VideoPlayer" class="VideoPlayer">
+            <div id="MainVideoPlayer" class="MainVideoPlayer">
+                <video crossorigin="anonymous" preload="metadata" src="blob:https://www.nicovideo.jp/0bbc3048-23b9-41aa-ada4-3e9f04a120af" disablepictureinpicture="" playsinline="playsinline" style="position: absolute; width: 100%; height: 100%; inset: 0px; display: block;"></video>
+            </div>
+            <div id="UadPlayer" class="UadPlayer">
+                <div class="UadView" style="display: none;">
+                    <div class="UadView-content" style="font-size: 12px; width: 640px; height: 360px;">
+                        <canvas id="UadView-canvas" class="UadView-canvas"></canvas>
+                        <div class="UadView-header">
+                            <div class="UadView-headerLogo">
+                                <svg class="UadView-logo" viewBox="0 0 462 84" fill="#FFF">
+                  <path
+                    d="M335.5 24.2v44.5c0 4.4-2.3 6.7-6.7 6.7h-5.4l-1.4-8.2h1.7c1.2 0 1.7-.6 1.7-1.7v-51h27.8V8.4h10.2v6.3H389v9.6zm4.3 51.2v-7.1l17.1-39h11.3L352 65.8h22.6c1.7 0 2.6-.5 2.6-1.3a2.4 2.4 0 00-.2-.9L371.3 48H382l6.9 19.7a10.9 10.9 0 01.6 3.4c0 3-2 4.3-6.5 4.3zm58.4-33.2v-9.7H426v-8.2h-15.5c-.7 1.7-4 3-7 3h-4.2l-1.6-8.3h1.7c1.9 0 3-.5 3.6-1.6l3.3-9h9.4l-2 6.2H426V8.3h9.9v6.3h24.8v9.7H436v8.2H462v9.7zm2.3 33.2V47.1h59.2v21c0 4.4-2 7.3-6.4 7.3zM450 56.7H410l.1 9h38.2c1.2 0 1.6-1.1 1.6-2.3zM242.5 47.3c0-3.2-.5-11-1.6-14.4a31.4 31.4 0 00-4.3-9 24.3 24.3 0 00-7-6.7 16.9 16.9 0 00-9.2-2.6h-36a5.8 5.8 0 00-4.3 1.8 6 6 0 00-1.7 4.4 6 6 0 001.7 4.4 5.8 5.8 0 004.4 1.8h32a13.9 13.9 0 017.1 1.6 13.3 13.3 0 014.3 4 13.6 13.6 0 012.2 5 86.6 86.6 0 01.6 9.7 25.3 25.3 0 01-.6 5 13.7 13.7 0 01-2.2 5.2 13.4 13.4 0 01-4.3 3.9 14 14 0 01-7.1 1.6h-32a5.8 5.8 0 00-4.4 1.8 6.3 6.3 0 000 8.8 5.8 5.8 0 004.3 1.8h34.7a18.7 18.7 0 009.8-2.6 25.6 25.6 0 007.4-6.6 30.5 30.5 0 004.6-9 32.3 32.3 0 001.6-9.9zM307.8 27a5.8 5.8 0 004.3-1.8 6 6 0 001.7-4.4 6 6 0 00-1.7-4.4 5.8 5.8 0 00-4.3-1.8h-52a5.8 5.8 0 00-4.3 1.8 6 6 0 00-1.8 4.4 6 6 0 001.8 4.4 5.8 5.8 0 004.3 1.8zm-52 36a5.8 5.8 0 00-4.3 1.8 6.3 6.3 0 000 8.8 5.8 5.8 0 004.3 1.8h52a5.8 5.8 0 004.3-1.8 6.3 6.3 0 000-8.8 5.8 5.8 0 00-4.3-1.8zm-94-36a5.8 5.8 0 004.2-1.8 6 6 0 001.8-4.4 6 6 0 00-1.8-4.4 5.8 5.8 0 00-4.3-1.8h-52a5.8 5.8 0 00-4.2 1.8 6.3 6.3 0 000 8.8 5.8 5.8 0 004.3 1.8zm-52 36a5.8 5.8 0 00-4.3 1.8 6.3 6.3 0 000 8.8 5.8 5.8 0 004.3 1.8h52a5.8 5.8 0 004.2-1.8 6.3 6.3 0 000-8.8 5.8 5.8 0 00-4.3-1.8zM79 57.3A4.8 4.8 0 0081 56c2.7-2.7 1.6-8.6-2.4-15.8l-4.9.9c1.8 3.7 2.2 6.6.9 8-3.2 3.1-14.7-3.3-25.8-14.3S31.4 12.2 34.6 9c1.3-1.4 4.2-1 8 .8l.9-4.9c-7.3-4-13.2-5-15.8-2.4a4.8 4.8 0 00-1.2 2.2L11.7 59.9 1.4 62.7a1.8 1.8 0 00-.9.4C-1.3 65 1.7 71 7.2 76.5s11.5 8.5 13.4 6.7a1.8 1.8 0 00.4-.8L23.8 72 79 57.3z">
+                  </path>
+                  <rect x="50.3" y="17.3" width="26.5" height="5.7" rx="2.6" ry="2.6" transform="rotate(-45 63.6 20.2)">
+                  </rect>
+                  <rect x="39.7" y="8.7" width="23.6" height="5.7" rx="2.6" ry="2.6" transform="rotate(-75 51.5 11.6)">
+                  </rect>
+                  <rect x="60.4" y="29.4" width="23.6" height="5.7" rx="2.6" ry="2.6" transform="rotate(-15 72.2 32.2)">
+                  </rect>
+                </svg>
+                            </div>
+                            <div class="ClickInterceptor is-interceptEnabled LoginRequirer is-inline is-noLogin"><button type="button" class="ActionButton UadView-headerRecommend">あなたもこの動画をニコニ広告しませんか？</button>
+                            </div>
+                        </div>
+                        <div class="ClickInterceptor is-interceptEnabled LoginRequirer is-inline is-noLogin">
+                            <button type="button" class="ActionButton UadView-moreClickArea"></button>
+                        </div>
+                    </div>
+                    <audio preload="metadata" src="https://nicovideo.cdn.nimg.jp/web/scripts/pages/watch/assets/uad.mp3"></audio>
+                </div>
+            </div>
+            <div data-name="@zippytech/react-observer-placeholder" style="display: none;"></div>
+        </div>
+        <div id="CommentRenderer" class="CommentRenderer" style="height: 360px; width: 640px; opacity: 1; visibility: visible;">
+            <canvas width="1366" height="768" style="position: absolute; width: 640px; height: 360px; left: 0px; top: 0px;"></canvas>
+        </div>
+        <div class="VideoSymbolContainer" style="height: 360px; width: 640px;">
+            <canvas class="VideoSymbolContainer-canvas" width="640" height="360"></canvas>
+        </div>
+        <div class="VideoAdContainer is-invisible is-autoResize">
+            <div id="IMALinearView" class="IMALinearView VideoAdContainer-player">
+                <div style="position: absolute; width: 640px; height: 360px;">
+                    <div style="display: none;">
+                        <video title="Advertisement" webkit-playsinline="true" playsinline="true" style="background-color: rgb(0, 0, 0); position: absolute; width: 100%; height: 100%; left: 0px; top: 0px;"></video>
+                        <div style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px;"></div>
+                    </div>
+                    <div style="display: none;">
+                        <video title="Advertisement" webkit-playsinline="true" playsinline="true" style="background-color: rgb(0, 0, 0); position: absolute; width: 100%; height: 100%; left: 0px; top: 0px;"></video>
+                        <div style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px;"></div>
+                    </div>
+                    <iframe src="https://imasdk.googleapis.com/js/core/bridge3.469.0_ja.html#goog_666412509" allowfullscreen="" allow="autoplay;trust-token-redemption" style="border: 0px; opacity: 1; margin: 0px; padding: 0px; position: relative; color-scheme: light;" width="640"
+                        height="360"></iframe>
+                </div>
+                <div data-name="@zippytech/react-observer-placeholder" style="display: none;"></div>
+            </div>
+            <div class="VideoAdContainer-shadowTop"></div>
+            <div class="VideoAdContainer-shadowBottom"></div>
+            <div class="VideoAdContainer-remainTime">
+                <div class="VideoAdRemainPlayTime">
+                    <span class="VideoAdRemainPlayTime-ad">広告</span><span class="VideoAdRemainPlayTime-time">00:00:06</span>
+                </div>
+            </div>
+        </div>
+        <div class="NicoruTipContainer"></div>
+        <div data-name="@zippytech/react-observer-placeholder" style="display: none;"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html id="page">
+
+<head>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <h1>Press Enter to Continue</h1>
+    <script>
+        $("#page").keypress(function() {
+            var str = event.keyCode;
+            var music = new Audio('https://upload.wikimedia.org/wikipedia/commons/c/c3/Caro_Mio_Ben_-_Bryn_Williams.ogg');//safariはOGG未サポート→ Caro_Mio_Ben_-_Bryn_Williams.mp3
+            if (str == 13) {
+                music.play();
+                music.loop = true;
+            }
+        });
+    </script>
+</body>
+
+</html>
