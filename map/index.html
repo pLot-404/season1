@@ -5,6 +5,14 @@
     <title>マップ</title>
     <link rel="stylesheet" type="text/css" href="../index.css">
     <meta charset="UTF-8">
+    <script>
+        //Service Worker入れてPWA化
+        if('serviceWorker' in navigator){
+            navigator.serviceWorker.register('../sw.js').then(function(){
+                console.log("Service Worker is registered!!");
+            });
+        }
+    </script>
 </head>
 
 <body>
