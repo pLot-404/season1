@@ -16,20 +16,12 @@ if(location.search == "?eminence=grise"){
 }
 //jQueryを使ってdiv内のHTMLを出力
 function BtnClick() {
-    try{
-        let str = escapeHtml($("#body").html()).replace(/\n/g, "<br>");
-        $("#buttons").html(str.replace(/&lt;!--/g,"<span>&lt;!--").replace(/--&gt;/g,"--&gt;</span>"));
-    }catch(e){
-        alert(e+"\nhtml push")
-    }
+    let str = escapeHtml($("#body").html()).replace(/\n/g, "<br>");
+    $("#buttons").html(str.replace(/&lt;!--/g,"<span>&lt;!--").replace(/--&gt;/g,"--&gt;</span>"));
 }
 
 function escapeHtml(html) {
-    try{
-        return $('<div/>').text(html).html();
-    }catch(e){
-        alert(e+"\nhtml push")
-    }   
+    return $('<div/>').text(html).html();
 }
 
 //localStorageを使って時間で動画を管理
@@ -108,22 +100,21 @@ $(function() {
 });
 
 //通知の送信の許可を得る
-function() {
-    if ("Notification" in window) {
-        var permission = Notification.permission;
+$(function() {
+        if ("Notification" in window) {
+            var permission = Notification.permission;
 
-        if (permission === "granted") {
-            return;
-        }
+            if (permission === "granted") {
+                return;
+            }
 
-        Notification
-            .requestPermission()
-            .then(function() {
-                navigator.serviceWorker.ready.then(function(registration) {
-                    registration.showNotification('通知が有効になりました', {
-                        body: "通知が有効化されました。タブを閉じずに配信をお待ち下さい。"
+            Notification.requestPermission().then(function() {
+                    navigator.serviceWorker.ready.then(function(registration) {
+                        registration.showNotification('通知が有効になりました', {
+                            body: "通知が有効化されました。タブを閉じずに配信をお待ち下さい。"
+                        });
                     });
                 });
-            });
-    }
-})();
+        }
+    })();
+)
