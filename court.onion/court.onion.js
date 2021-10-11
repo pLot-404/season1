@@ -108,7 +108,7 @@ $(function() {
 });
 
 //通知の送信の許可を得る
-(function() {
+function() {
     if ("Notification" in window) {
         var permission = Notification.permission;
 
