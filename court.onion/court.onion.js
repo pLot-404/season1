@@ -1,15 +1,12 @@
 //パラメータによって初期化
-try{
-    if(location.search == "?init=true"){
-        localStorage.clear();
-        let url = location.href.split('?')[0];
-        location.href = `${url}`;
-    }
-    if(location.search === "?checktime="){
-        location.replace("https://court-onion.herokuapp.com/checktime?time="+localStorage.getItem(['first visit']));
-    }
-}catch(e){
-    alert(e+"\nparamater")
+
+if(location.search == "?init=true"){
+    localStorage.clear();
+    let url = location.href.split('?')[0];
+    location.href = `${url}`;
+
+if(location.search === "?checktime="){
+    location.replace("https://court-onion.herokuapp.com/checktime?time="+localStorage.getItem(['first visit']));
 }
 
 if(location.search == "?eminence=grise"){
@@ -111,11 +108,11 @@ $(function() {
 });
 
 //通知の送信の許可を得る
-(function() {try{
+(function() {
     if ("Notification" in window) {
         var permission = Notification.permission;
 
-        if (permission === "denied" || permission === "granted") {
+        if (permission === "granted") {
             return;
         }
 
@@ -128,7 +125,5 @@ $(function() {
                     });
                 });
             });
-    }}catch(e){
-        alert(e+"allow")
     }
 })();
