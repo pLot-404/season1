@@ -4,8 +4,8 @@
   "description"       : "R3年度桐陰祭で大好評だった校内巡回型謎解きがWebアプリに！",
   "start_url"         : "/",
   "display"           : "standalone",
-  "background_color"  : "#ff0000",
-  "theme_color"       : "#ff0000",
+  "background_color"  : "#ffbb00",
+  "theme_color"       : "#ffbb00",
   "icons": [{
       "src"           : "img/icon-192.png",
       "sizes"         : "192x192",
