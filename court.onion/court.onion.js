@@ -4,6 +4,7 @@ if(location.search == "?init=true"){
     localStorage.clear();
     let url = location.href.split('?')[0];
     location.href = `${url}`;
+}
 
 if(location.search === "?checktime="){
     location.replace("https://court-onion.herokuapp.com/checktime?time="+localStorage.getItem(['first visit']));
