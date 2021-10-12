@@ -100,20 +100,18 @@ $(function() {
 });
 
 //通知の送信の許可を得る
-function() {
-        if ("Notification" in window) {
-            var permission = Notification.permission;
+if ("Notification" in window) {
+    var permission = Notification.permission;
 
-            if (permission === "granted" || permission === "denined") {
-                return;
-            }
+    if (permission === "granted" || permission === "denined") {
+        return;
+    }
 
-            Notification.requestPermission().then(function() {
-                    navigator.serviceWorker.ready.then(function(registration) {
-                        registration.showNotification('通知が有効になりました', {
-                            body: "通知が有効化されました。タブを閉じずに配信をお待ち下さい。"
-                        });
-                    });
+    Notification.requestPermission().then(function() {
+            navigator.serviceWorker.ready.then(function(registration) {
+                registration.showNotification('通知が有効になりました', {
+                    body: "通知が有効化されました。タブを閉じずに配信をお待ち下さい。"
                 });
-        }
-    })();
+            });
+        });
+}
