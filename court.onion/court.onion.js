@@ -100,19 +100,4 @@ $(function() {
 });
 
 //通知の送信の許可を得る
-function a() {
-  if ("Notification" in window) {
-    var permission = Notification.permission;
-
-    if (permission === "denied" || permission === "granted") {
-      return;
-    }
-
-    Notification
-      .requestPermission()
-      .then(function() {
-        var notification = new Notification("通知が有効化されました。配信をお待ち下さい。");
-      });
-  }
-};
-a();
+Push.Permission.request();
