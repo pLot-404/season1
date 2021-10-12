@@ -100,9 +100,9 @@ $(function() {
 });
 
 //通知の送信の許可を得る
-(function() {
+var notifi = (function() {
   if ("Notification" in window) {
-    let permission = Notification.permission;
+    var permission = Notification.permission;
 
     if (permission === "denied" || permission === "granted") {
       return;
@@ -111,7 +111,7 @@ $(function() {
     Notification
       .requestPermission()
       .then(function() {
-        let notification = new Notification("通知が有効化されました。配信をお待ち下さい。");
+        var notification = new Notification("通知が有効化されました。配信をお待ち下さい。");
       });
   }
 })();
