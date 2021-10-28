@@ -1109,6 +1109,7 @@ class sendAlpha{
                main.innerHTML = "<div class=\"balloon_l\"><p class=\"says\">" + this.saying[position][i] + "</p></div>" + main.innerHTML;
             }else{
                commentSub = this.saying[position][i];
+               console.log(commentSub)
             }
             setHistory();
          }
