@@ -1088,7 +1088,7 @@ function setLastComment(){
    localStorage.setItem(['last comment'],[lastComment]);
 }
 function setHistory(){
-   localStorage.setItem(['played history'],[document.getElementById("chat").innerHTML]);
+   localStorage.setItem(['play history'],[document.getElementById("chat").innerHTML]);
 }
 class sendAlpha{
    constructor(saying){
