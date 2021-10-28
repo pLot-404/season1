@@ -985,7 +985,8 @@ function send(){
       }
    }else if(commentSub !== undefined){
       for(let i=0; i<commentSub.length; i++){
-         array.push(commentSub[0][0][i]);
+         array.push(commentSub[0][i][0]);
+         console.log(array)
       }
    }
    if(array.includes(ID.value)&&lastComment.join()==="0,1,0"){
