@@ -1115,7 +1115,7 @@ class sendAlpha{
          input.innerHTML = "<input type=\"text\" placeholder=\"受け取ったIDを入力してください\" id=\"ID\" autofocus><input type=\"image\" src=\"img/send.png\" onclick=\"send()\" id=\"button\">";
          document.getElementById("ID").addEventListener("keydown",sendKey);
       }else{
-         main.innerHTML = "<div class=\"balloon_l\"><p class=\"says\">間違っているようだ。もう一度考えてみよう。</p></div><div class=\"balloon_r\"><p class=\"says\">" + ID.value + "</p></div> + main.innerHTML";
+         main.innerHTML = "<div class=\"balloon_l\"><p class=\"says\">間違っているようだ。もう一度考えてみよう。</p></div><div class=\"balloon_r\"><p class=\"says\">" + ID.value + "</p></div>" + main.innerHTML;
          ID.value = "";
          setHistory();
       }
