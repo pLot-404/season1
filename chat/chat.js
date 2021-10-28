@@ -1,8 +1,8 @@
 if(localStorage.getItem(['last comment'])===null){
    localStorage.setItem(['last comment'],['0']);
 }
-if(localStorage.getItem(['history'])===null){
-   localStorage.setItem(['history'],['<div id="input"></div><div id="main"></div>']);
+if(localStorage.getItem(['play history'])===null){
+   localStorage.setItem(['play history'],['<div id="input"></div><div id="main"></div>']);
 }
 if(localStorage.getItem(['played'])===null){
    localStorage.setItem(['played'],[0]);
@@ -13,7 +13,7 @@ if(localStorage.getItem(['story played'])===null){
 if(localStorage.getItem(['hint'])===null){
    localStorage.setItem(['hint'],[null]);
 }
-document.getElementById("chat").innerHTML = localStorage.getItem(['history']);
+document.getElementById("chat").innerHTML = localStorage.getItem(['play history']);
 let lastComment = localStorage.getItem(['last comment']).split(",");
 let comment;
 let input = document.getElementById("input");
