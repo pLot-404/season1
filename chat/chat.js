@@ -972,17 +972,21 @@ function send(){
    console.log(commentSub)
    let ID = document.getElementById("ID");
    let array = [];
+   let n = 0;
    if(lastComment.join()==="0,1,0"){
       for(let i=0; i<natadecocoFirst.length; i++){
          array.push(natadecocoFirst[i][0]);
+         n++;
       }
    }else if(lastComment.join()==="0,17,0"){
       for(let i=0; i<natadecocoLast.length; i++){
          array.push(natadecocoLast[i][0]);
+         n++;
       }
    }else if(lastComment.join()==="2,4,0"){
       for(let i=0; i<afterEndSortOut.length; i++){
          array.push(afterEndSortOut[i][0]);
+         n++;
       }
    }
    if(commentSub !== undefined){
@@ -991,7 +995,9 @@ function send(){
          console.log(array)
       }
    }
-   if(array.includes(ID.value)&&lastComment.join()==="0,1,0"){
+    if(commentSub !== undefined&&array.includes(ID.value)){
+      new sendAlpha(commentSub[array.indexOf(ID.value)-n]).send();
+   }else if(array.includes(ID.value)&&lastComment.join()==="0,1,0"){
       new sendAlpha(natadecocoFirst).send();
    }else if(array.includes(ID.value)&&lastComment.join()==="0,17,0"){
       new sendAlpha(natadecocoLast).send();
@@ -1005,8 +1011,6 @@ function send(){
       new sendAlpha(sharpEZ).send();
    }else if(ID.value !== "Game Set"&&lastComment.join()==="1,9,0"){
       new sendAlpha(GrandFinaleEZ).send();
-   }else if(commentSub !== undefined&&array.includes(ID.value)){
-      new sendAlpha(commentSub[array.indexOf(ID.value)]).send();
    }else if(ID.value === NoticingEZ[0][0]&&Number(lastComment[0])===1){
       new sendAlpha(NoticingEZ).send();
       lastComment = [1,7,"0"];
