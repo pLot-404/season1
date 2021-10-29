@@ -14,7 +14,7 @@ if(localStorage.getItem(['hint'])===null){
    localStorage.setItem(['hint'],[null]);
 }
 if(localStorage.getItem(['commentSub']===null)){
-   localStorage.setItem(['commentSub'],['']);
+   localStorage.setItem(['commentSub'],[' ']);
 }
 document.getElementById("chat").innerHTML = localStorage.getItem(['play history']);
 let lastComment = localStorage.getItem(['last comment']).split(",");
