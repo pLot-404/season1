@@ -984,7 +984,8 @@ function send(){
       for(let i=0; i<afterEndSortOut.length; i++){
          array.push(afterEndSortOut[i][0]);
       }
-   }else if(commentSub !== undefined){
+   }
+   if(commentSub !== undefined){
       for(let i=0; i<commentSub.length; i++){
          array.push(commentSub[0][i][0]);
          console.log(array)
