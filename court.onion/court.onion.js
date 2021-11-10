@@ -7,7 +7,8 @@ if(location.search == "?init=true"){
 }
 
 if(location.search === "?checktime="){
-    location.replace("https://court-onion.herokuapp.com/checktime?time="+localStorage.getItem(['first visit']));
+    let url = location.href.split('?')[0];
+    location.replace(url+"/checktime?time="+localStorage.getItem(['first visit']));
 }
 
 if(location.search == "?eminence=grise"){
