@@ -1,22 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Checktime</title>
-    <link rel="stylesheet" href="../court.onion.css">
+    <link rel="stylesheet" href="../court.onion.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <link rel="manifest" href="../../../manifest.json">
-    <script>
-        //Service Worker入れてPWA化
-        if('serviceWorker' in navigator){
-            navigator.serviceWorker.register('../../../sw.js').then(function(){
-                console.log("Service Worker is registered!!");
-            });
-        }
-    </script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="text"></div>
     <script src="index.js"></script>
-</body>
+  </body>
 </html>
